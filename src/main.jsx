@@ -8,9 +8,11 @@ import ShopContextProvider from './Context/ShopContext.jsx'
 
 //now for the whole project we will get the help of react router Dom
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <ShopContextProvider>
-      <App />
-    </ShopContextProvider>
-  </BrowserRouter>
+  <StrictMode>
+    <BrowserRouter>
+      <ShopContextProvider>
+        <App />
+      </ShopContextProvider>
+    </BrowserRouter>
+  </StrictMode>
 );
