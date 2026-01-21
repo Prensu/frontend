@@ -1,5 +1,5 @@
 import { assets } from '../assets/assets';
-import Title from '../Components/Title';
+import Title from '../components/Title';
 import { motion } from 'framer-motion'; // Framer Motion for animations
 
 const Contact = () => {
@@ -118,3 +118,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

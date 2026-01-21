@@ -4,16 +4,16 @@ import Home from './pages/Home';
 import Collection from './pages/Collection';
 import About from './pages/About';
 import Contact from './pages/Contact';
-import Product from './Pages/Product';
-import Cart from './Pages/Cart';
+import Product from './pages/Product';
+import Cart from './pages/Cart';
 import PlaceOrder from './pages/PlaceOrder';
-import Orders from './Pages/Orders';
-import Navbar from './Components/Navbar';
-import Footer from './Components/Footer';
-import SearchBar from './Components/SearchBar';
+import Orders from './pages/Orders';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import SearchBar from './components/SearchBar';
 
 import { ToastContainer, toast } from 'react-toastify';
-import Chatbot from './Components/Chatbot';
+import Chatbot from './components/Chatbot';
 
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -47,3 +47,4 @@ function App() {
 }
 
 export default App;
+

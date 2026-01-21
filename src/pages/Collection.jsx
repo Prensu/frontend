@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
-import { ShopContext } from '../Context/ShopContext';
+import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets';
-import Title from '../Components/Title';
-import ProductItem from '../Components/ProductItem';
-import ShopContextProvider from '../Context/ShopContext';
+import Title from '../components/Title';
+import ProductItem from '../components/ProductItem';
+import ShopContextProvider from '../context/ShopContext';
 
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext);
@@ -227,3 +227,4 @@ const Collection = () => {
 };
 
 export default Collection;
+

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
-import { ShopContext } from '../Context/ShopContext';
+import { ShopContext } from '../context/ShopContext';
 import { Link } from 'react-router-dom';
 
 const ProductItem = ({ id, image, name, price }) => {
@@ -32,3 +32,4 @@ ProductItem.propTypes = {
   price: PropTypes.number,
 };
 export default ProductItem;
+
