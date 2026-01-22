@@ -18,16 +18,15 @@ const SearchBar = () => {
   // Effect to update the search bar visibility and animation based on URL path and showSearch
 
   useEffect(() => {
-    if (location.pathname.includes('collection')) {
-      // Show the search bar and apply the scale-up animation if it includes 'collection' page
-
+    const onCollection = location.pathname.includes('collection');
+    if (onCollection) {
+      setShowSearch(true);
       setVisible(true);
       setAnimate('animate-scale-up-center');
     } else {
-      // Hide the search bar if doesn`t includes 'collection' page
       setVisible(false);
     }
-  }, [location, showSearch]); // Update visibility when location and showSearch change
+  }, [location.pathname, setShowSearch, showSearch]);
 
   const handleClose = () => {
     setAnimate('animate-scale-down-center');

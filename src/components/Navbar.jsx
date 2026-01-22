@@ -6,7 +6,8 @@ import { ShopContext } from '../context/ShopContext';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [visible, setVisible] = useState(false);
-  const { getCartCount, user, logoutUser, navigate } = useContext(ShopContext);
+  const { getCartCount, user, logoutUser, navigate, setShowSearch, setSearch } =
+    useContext(ShopContext);
   const cartCount = getCartCount();
 
   const userInitial =
@@ -60,7 +61,16 @@ const Navbar = () => {
           </ul>
 
           <div className="flex items-center gap-6">
-            <img src={assets.search_icon} className="w-5 cursor-pointer" alt="Search" />
+            <img
+              src={assets.search_icon}
+              className="w-5 cursor-pointer"
+              alt="Search"
+              onClick={() => {
+                setSearch('');
+                setShowSearch(true);
+                navigate('/collection');
+              }}
+            />
 
             {user ? (
               <div className="group relative">
