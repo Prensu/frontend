@@ -1,43 +1,44 @@
 # Shikali Threads – Frontend
 
-An ecommerce frontend built with React and Vite, featuring a product catalog, cart, checkout, and lightweight local-only authentication.
+Modern ecommerce UI for Shikali Threads, built with React + Vite and tailored for a smooth cart-to-checkout flow.
 
-## Stack
-- React 18 + Vite 6 (module bundler/dev server)
-- React Router 7 (client-side routing)
-- Tailwind CSS 3 (utility styling) + custom `index.css`
-- Framer Motion (micro animations)
-- React Toastify (notifications)
-- Local state via React Context (ShopContext) with localStorage persistence for auth and orders
+🔗 Live demo: https://frontend-qmfto1mqb-prensus-projects.vercel.app/
 
-## Features
-- Catalog browsing with search, filters, and product detail pages.
-- Cart management (sizes/quantities) with running totals and checkout flow.
-- Simple auth (signup/login/logout) stored locally; routes like checkout/orders are protected.
-- Orders view fed from local cart data; payment options are UI-only (Stripe/Razorpay/COD selection, no gateway calls).
-- Responsive layout with mobile-friendly nav and payment picker.
+## ✨ Highlights
+- 🛍️ Browse: hero, collections grid, search/filter, product detail view.
+- 🛒 Cart & Checkout: size/quantity control, running totals, delivery form, payment picker UI.
+- 🔐 Auth: local signup/login/logout with protected checkout and orders (localStorage-backed).
+- 📦 Orders: simple order history sourced from cart data.
+- 📱 Responsive: mobile-first nav, search, and checkout layouts.
 
-## Project Structure
+## 🛠️ Tech Stack
+- ⚛️ React 18, ⚡ Vite 6, 🧭 React Router 7
+- 🎨 Tailwind CSS 3 + custom `index.css`
+- 🎬 Framer Motion (micro animations)
+- 🔔 React Toastify (notifications)
+- 🧠 State: React Context (`ShopContext`) with localStorage persistence
+
+## 🗺️ Project Map
 - `src/main.jsx` – app bootstrap with Router and `ShopContextProvider`.
-- `src/App.jsx` – route definitions and global chrome (navbar, footer, search, chatbot).
-- `src/context/ShopContext.jsx` – products, cart, orders, auth, and helpers.
-- `src/pages/` – page-level screens (Home, Collection, Product, Cart, PlaceOrder, Orders, Login, About, Contact).
+- `src/App.jsx` – routes and global chrome (navbar, footer, search, chatbot).
+- `src/context/ShopContext.jsx` – products, cart, orders, auth helpers.
+- `src/pages/` – screens (Home, Collection, Product, Cart, PlaceOrder, Orders, Login, About, Contact).
 - `src/components/` – shared UI (Navbar, CartTotal, RequireAuth, etc.).
-- `src/assets/` – static product data and imagery.
+- `src/assets/` – product data and imagery.
 
-## Scripts
-- `npm install` – install dependencies.
-- `npm run dev` – start Vite dev server.
-- `npm run build` – production build.
-- `npm run preview` – preview the production build.
-- `npm run lint` – run ESLint.
+## 📜 Scripts
+- `npm install` – install dependencies
+- `npm run dev` – start Vite dev server
+- `npm run build` – production build
+- `npm run preview` – preview the production build
+- `npm run lint` – run ESLint
 
-## Auth & Data Notes
-- Authentication is purely client-side and stored in `localStorage`; it is not secure for production.
-- Orders and cart data are also local; there is no backend or payment processing.
-- Payment method selection is cosmetic; integrate a real provider before live use.
+## ⚠️ Notes
+- Auth and orders are client-side only (localStorage); not production-secure.
+- Payment methods are UI-only (Stripe/Razorpay/COD badges) with no gateway calls.
+- Add a backend and real payment provider before going live.
 
-## Quick Start
+## 🚀 Quick Start
 ```bash
 npm install
 npm run dev
