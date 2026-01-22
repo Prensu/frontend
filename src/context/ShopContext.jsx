@@ -142,6 +142,7 @@ const ShopContextProvider = ({ children }) => {
     }
 
     const cartData = structuredClone(cartItems);
+    const productInfo = products.find((product) => product._id === itemId);
 
     if (cartData[itemId]) {
       cartData[itemId][size]
@@ -153,6 +154,9 @@ const ShopContextProvider = ({ children }) => {
     }
 
     setCartItems(cartData);
+    toast.success(
+      `${productInfo?.name || 'Item'} added to cart${size ? ` • ${size}` : ''}`
+    );
   };
 
   const addOrder = (paymentMethod = 'cod') => {
