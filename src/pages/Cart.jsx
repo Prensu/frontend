@@ -3,9 +3,10 @@ import { ShopContext } from '../context/ShopContext';
 import Title from '../components/Title';
 import { assets } from '../assets/assets';
 import CartTotal from '../components/CartTotal';
+import { toast } from 'react-toastify';
 
 const Cart = () => {
-  const { products, currency, cartItems, updateQuantity, navigate, addOrder } =
+  const { products, currency, cartItems, updateQuantity, navigate, user } =
     useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
@@ -100,7 +101,11 @@ const Cart = () => {
           <div className="w-full text-end">
             <button
               onClick={() => {
-                addOrder(); // Call addOrder to move items to orders state
+                if (!user) {
+                  toast.info('Please sign in to continue to checkout');
+                  navigate('/login', { state: { from: '/cart' } });
+                  return;
+                }
                 navigate('/place-order');
               }}
               className="my-8 px-8 py-3 bg-black text-white text-sm"

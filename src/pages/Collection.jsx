@@ -3,7 +3,6 @@ import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets';
 import Title from '../components/Title';
 import ProductItem from '../components/ProductItem';
-import ShopContextProvider from '../context/ShopContext';
 
 const Collection = () => {
   const { products, search, showSearch } = useContext(ShopContext);

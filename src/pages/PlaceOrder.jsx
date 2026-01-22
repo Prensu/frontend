@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 const PlaceOrder = () => {
   const [paymentMethod, setPaymentMethod] = useState("cod");
-  const { navigate } = useContext(ShopContext);
+  const { navigate, addOrder, user } = useContext(ShopContext);
 
   return (
     <motion.div
@@ -37,6 +37,7 @@ const PlaceOrder = () => {
             type="email"
             placeholder="Email Address"
             className="input-field"
+            defaultValue={user?.email || ""}
           />
           <input
             type="text"
@@ -110,7 +111,12 @@ const PlaceOrder = () => {
         {/* Place Order Button */}
         <div className="w-full text-end mt-12">
           <button
-            onClick={() => navigate("/orders")}
+            onClick={() => {
+              const placed = addOrder(paymentMethod.toUpperCase());
+              if (placed) {
+                navigate("/orders");
+              }
+            }}
             className="bg-black text-white px-10 py-4 text-sm font-semibold rounded-lg shadow-lg hover:shadow-black transition-all duration-300"
           >
             PLACE ORDER

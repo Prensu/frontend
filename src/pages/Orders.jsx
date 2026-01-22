@@ -3,7 +3,7 @@ import Title from '../components/Title';
 import { ShopContext } from '../context/ShopContext';
 
 const Orders = () => {
-  const { orders, products, currency } = useContext(ShopContext);
+  const { orders, products, currency, user } = useContext(ShopContext);
 
   // Function to format the current date
   const formatDate = (date) => {
@@ -13,6 +13,7 @@ const Orders = () => {
 
   // Get the current date
   const currentDate = formatDate(new Date());
+  const userOrders = orders.filter((order) => !user || order.userId === user.id);
 
   return (
     <div className="pt-16 border-t container mx-auto px-4">
@@ -20,14 +21,15 @@ const Orders = () => {
         <Title text1={'MY'} text2={'ORDERS'} />
       </div>
 
-      {orders.length === 0 ? (
+      {userOrders.length === 0 ? (
         <p className="text-gray-500 text-center text-lg">You have no orders.</p>
       ) : (
         <div className="space-y-6">
-          {orders.map((order, index) => {
+          {userOrders.map((order, index) => {
             const productData = products.find(
               (product) => product._id === order._id
             );
+            const paymentLabel = order.paymentMethod || 'COD';
 
             return (
               <div
@@ -58,7 +60,7 @@ const Orders = () => {
                       Date: <span className="font-semibold">{currentDate}</span>
                     </p>
                     <p className="mt-2 text-gray-600">
-                      Payment Method: <span className="font-semibold">{order.paymentMethod}</span>
+                      Payment Method: <span className="font-semibold">{paymentLabel}</span>
                     </p>
                   </div>
                 </div>

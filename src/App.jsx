@@ -8,9 +8,11 @@ import Product from './pages/Product';
 import Cart from './pages/Cart';
 import PlaceOrder from './pages/PlaceOrder';
 import Orders from './pages/Orders';
+import Login from './pages/Login';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SearchBar from './components/SearchBar';
+import RequireAuth from './components/RequireAuth';
 
 import { ToastContainer, toast } from 'react-toastify';
 import Chatbot from './components/Chatbot';
@@ -36,8 +38,23 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/product/:productId" element={<Product />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/place-order" element={<PlaceOrder />} />
-        <Route path="/orders" element={<Orders />} />
+        <Route
+          path="/place-order"
+          element={
+            <RequireAuth>
+              <PlaceOrder />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/orders"
+          element={
+            <RequireAuth>
+              <Orders />
+            </RequireAuth>
+          }
+        />
+        <Route path="/login" element={<Login />} />
        
       </Routes>
 
